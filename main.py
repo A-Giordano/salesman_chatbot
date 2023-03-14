@@ -21,7 +21,7 @@ def get_text():
     return input_text
 
 
-st.title("chatBot : Streamlit + openAI")
+st.title("Sales Coach Trainer")
 
 if 'customer_conv' not in st.session_state:
     st.session_state['customer_conv'] = [
