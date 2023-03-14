@@ -2,8 +2,7 @@ import openai
 import streamlit as st
 from streamlit_chat import message
 
-# openai.api_key = st.secrets["OPENAI_KEY"]
-openai.api_key = "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"
+openai.api_key = st.secrets["OPENAI_KEY"]
 
 # def clear_cache():
 #     st.session_state['customer_conv'] = []
