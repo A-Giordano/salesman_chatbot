@@ -51,11 +51,21 @@ if 'customer_conv' not in st.session_state:
 #     response = generate_response(st.session_state.customer_conv)
 #     st.session_state.customer_conv.append(response)
 
-# user_input = get_text()
-user_input = st.text_input('You:',key='input')
 
-if user_input:
-    st.session_state.customer_conv.append({"role": "user", "content": user_input})
+if 'user_input' not in st.session_state:
+    st.session_state.user_input = ''
+
+def submit():
+    st.session_state.user_input = st.session_state.input
+    st.session_state.input = ''
+
+# user_input = get_text()
+# user_input = st.text_input('You:',key='input')
+
+st.text_input('You:', key='input', on_change=submit)
+
+if st.session_state.user_input:
+    st.session_state.customer_conv.append({"role": "user", "content": st.session_state.user_input})
     response = generate_response(st.session_state.customer_conv)
     st.session_state.customer_conv.append(response)
 
