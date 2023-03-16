@@ -67,7 +67,8 @@ if st.session_state['customer_conv']:
     # for i in range(len(st.session_state['generated']) - 1, -1, -1):
     #     message(st.session_state["generated"][i], key=str(i))
     #     message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-    message("Hi, I'm a potential customer interested in buying a pen, try to sell it to me in 3 interaction and then you'll have feedbacks on how well you performed",
+    message("""Hello, I'll act as a potential customer interested in buying a pen while you try to sell it to me. 
+You have 3 interaction to convince me, then I'll give you a feedback on how well you performed""",
             key="000")
 
     for i, text in enumerate(st.session_state['customer_conv'][2:]):
