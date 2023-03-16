@@ -87,8 +87,15 @@ You have 3 interaction to convince me, then I'll give you a feedback on how well
         # message(feedback['content'], key="feedback" + feedback['role'])
         # st.session_state.customer_conv.append(feedback)
 
+        # st.session_state.customer_conv.append(
+        #     {"role": "user", "content": """provide feedback on how effectively did I tried to sell the pen, then on a new line give me float score between 0 and 10 in the format of: Score:[float]"""}
+        # )
+
         st.session_state.customer_conv.append(
-            {"role": "user", "content": """provide feedback on how effectively did I tried to sell the pen, then on a new line give me float score between 0 and 10 in the format of: Score:[float]"""}
+            {"role": "user",
+             "content": """Provide a feedback on how effective I have been trying to sell you a pen, penalizing me if I changed subject, rambled or have been unhelpful.
+        Then on a new line give me an int score between 0 and 10 on how effective I have been trying to sell you a pen, strictly in the format of:
+        Score: [int]"""}
         )
         score = generate_response(st.session_state.customer_conv)
         message(score['content'], key="score" + score['role'])
